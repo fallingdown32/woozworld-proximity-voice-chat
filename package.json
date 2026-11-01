@@ -1,0 +1,14 @@
+{
+  "name": "woozworld-proximity-voice",
+  "version": "1.1.0",
+  "description": "Proximity voice chat for Woozworld: a browser extension and its signaling server.",
+  "license": "MIT",
+  "type": "module",
+  "private": true,
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node server/index.js",
+    "test": "node --test"
+  },
+  "dependencies": { "ws": "^8.18.0" }
+}

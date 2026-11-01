@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Proximity Voice</title>
+<link rel="stylesheet" href="popup.css">
+<body>
+<div class="top">
+  <img class="app" src="icons/48.png" alt="">
+  <i class="sep"></i>
+  <span class="capsule" aria-live="polite"><i id="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-mic"/></svg></i><span id="state"></span></span>
+  <label class="round" title="Voice chat on or off"><input id="on" type="checkbox" aria-label="Voice chat on"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-power"/></svg></label>
+</div>
+
+<h1 class="header">Proximity Voice</h1>
+<p id="where" class="desc"></p>
+
+<p id="allow" class="banner" hidden>Voice needs your microphone. <button id="allowBtn" type="button">Allow</button></p>
+
+<div class="menu">
+  <button id="mute" type="button" class="item" aria-pressed="false"><b class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-mic"/></svg></b><span>Microphone</span><em></em></button>
+  <button id="deafen" type="button" class="item" aria-pressed="false"><b class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-ears"/></svg></b><span>Sound</span><em></em></button>
+</div>
+
+<section>
+  <h2>How you talk</h2>
+  <div class="segmented" role="radiogroup" aria-label="How you talk">
+    <button type="button" role="radio" data-mode="ptt">Push to talk</button>
+    <button type="button" role="radio" data-mode="vad">Voice activation</button>
+  </div>
+  <div id="pttRow" class="line"><span>Talk key</span><button id="key" type="button" class="key" title="Click, then press the key to use"></button></div>
+  <div class="meter" aria-hidden="true"><div id="level"></div><div id="mark"></div></div>
+  <label id="vadRow" class="line"><span>Activation level</span><input id="threshold" type="range" min="-90" max="0" step="1"><output id="thresholdOut"></output></label>
+  <label class="line"><span>Microphone</span><select id="device"></select></label>
+</section>
+
+<section>
+  <h2>What you hear</h2>
+  <label class="line"><span>Volume</span><input id="volume" type="range" min="0" max="1" step="0.05"><output id="volumeOut"></output></label>
+  <label class="line"><span>Proximity</span><input id="range" type="range" min="4" max="30" step="1"><output id="rangeOut"></output></label>
+  <p class="desc">How far away players can be heard, and hear you.</p>
+  <div class="menu">
+    <label class="item"><b class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-panel"/></svg></b><span>Panel in game</span><em id="panelOut"></em><input id="panel" type="checkbox" aria-label="Show the voice panel in the game"></label>
+  </div>
+  <p class="desc">A small panel with your Unitz and nearby players. Drag it anywhere.</p>
+</section>
+
+<section>
+  <h2>Players here <span id="count" class="count"></span></h2>
+  <ul id="players" class="menu players"></ul>
+  <p id="empty" class="desc"></p>
+</section>
+
+<details>
+  <summary>Voice server</summary>
+  <div class="line"><input id="server" spellcheck="false" autocomplete="off" aria-label="Voice server address"><button id="serverReset" type="button" class="pill">Default</button></div>
+  <p class="desc">Everyone you want to hear must use the same server.</p>
+</details>
+
+<footer><b>V</b><span id="version"></span> · Proximity Voice</footer>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-power" viewBox="0 0 24 24"><path d="M12 2v10"/><path d="M18.4 6.6a9 9 0 1 1-12.8 0"/></symbol>
+  <symbol id="i-panel" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M7 13h6"/><path d="M7 16h4"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v3"/></symbol>
+  <symbol id="i-ears" viewBox="0 0 24 24"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></symbol>
+  <symbol id="i-mic-off" viewBox="0 0 24 24"><path d="M2 2l20 20"/><path d="M18.9 13.4A7 7 0 0 0 19 12v-2"/><path d="M15 9.3V5a3 3 0 0 0-5.7-1.3"/><path d="M9 9v3a3 3 0 0 0 5.1 2.1"/><path d="M16.9 16.9A7 7 0 0 1 5 12v-2"/><path d="M12 19v3"/></symbol>
+  <symbol id="i-ears-off" viewBox="0 0 24 24"><path d="M2 2l20 20"/><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 2.6-6.4"/><path d="M8.3 3.9A9 9 0 0 1 21 12v5"/><path d="M21 14h-3"/></symbol>
+  <symbol id="i-speaker" viewBox="0 0 24 24"><path d="M11 4.7a.7.7 0 0 0-1.2-.5L6.4 7.6A1.4 1.4 0 0 1 5.4 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.4a1.4 1.4 0 0 1 1 .4l3.4 3.4a.7.7 0 0 0 1.2-.5z"/><path d="M16 9a5 5 0 0 1 0 6"/></symbol>
+  <symbol id="i-speaker-off" viewBox="0 0 24 24"><path d="M11 4.7a.7.7 0 0 0-1.2-.5L6.4 7.6A1.4 1.4 0 0 1 5.4 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.4a1.4 1.4 0 0 1 1 .4l3.4 3.4a.7.7 0 0 0 1.2-.5z"/><path d="M22 9l-6 6"/><path d="M16 9l6 6"/></symbol>
+</svg>
+<script src="defaults.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>
