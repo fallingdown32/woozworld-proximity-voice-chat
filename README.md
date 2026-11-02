@@ -7,7 +7,7 @@
 **Talk to the players standing next to you in Woozworld.**<br>
 **Parlez aux joueurs qui sont juste à côté de vous dans Woozworld.**
 
-[![Discord](https://img.shields.io/badge/discord-join%20the%20server-5865F2?style=flat-square&logo=discord&logoColor=white)](https://discord.gg/v8Gv2FxjWX)
+[![Discord](https://img.shields.io/badge/discord-join%20the%20server-5865F2?style=flat-square&logo=discord&logoColor=white)](https://discord.gg/Cr3dakfNg5)
 ![Downloads](https://img.shields.io/github/downloads/fallingdown32/woozworld-proximity-voice-chat/total?style=flat-square&color=3ddc84)
 ![License: MIT](https://img.shields.io/badge/license-MIT-3ddc84?style=flat-square)
 ![Chrome MV3](https://img.shields.io/badge/Chrome-Manifest%20V3-4285F4?style=flat-square&logo=googlechrome&logoColor=white)
@@ -111,7 +111,7 @@ Then set the address in the popup under **Voice server**, or change `server` in 
 
 ### Community
 
-Bug reports, suggestions and ideas for **new extensions** are all welcome on the Discord: **[discord.gg/v8Gv2FxjWX](https://discord.gg/v8Gv2FxjWX)**
+Bug reports, suggestions and ideas for **new extensions** are all welcome on the Discord: **[discord.gg/Cr3dakfNg5](https://discord.gg/Cr3dakfNg5)**
 
 Any kind of extension or idea can be suggested and built, as long as it doesnt go against Woozworld's Terms of Service.
 
@@ -214,7 +214,7 @@ Indiquez ensuite l'adresse dans la fenêtre de l'extension, section **Voice serv
 
 ### Communauté
 
-Rapports de bugs, suggestions et idées de **nouvelles extensions** sont les bienvenus sur le Discord : **[discord.gg/v8Gv2FxjWX](https://discord.gg/v8Gv2FxjWX)**
+Rapports de bugs, suggestions et idées de **nouvelles extensions** sont les bienvenus sur le Discord : **[discord.gg/Cr3dakfNg5](https://discord.gg/Cr3dakfNg5)**
 
 N'importe quel type d'extension ou d'idée peut être proposé et créé, tant que cela ne va pas à l'encontre des Conditions d'utilisation de Woozworld.
 
